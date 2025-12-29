@@ -20,7 +20,7 @@ A Python tool for exporting all data from MongoDB databases to JSON files. This 
 1. Clone this repository:
 ```bash
 git clone <repository-url>
-cd mongodb-hackiing
+cd mongodb-hacking-d3v
 ```
 
 2. Install dependencies:
@@ -40,7 +40,7 @@ pip install pymongo
 ### Basic Usage
 
 ```bash
-python hack.py
+python penetrate_into_mongodb.py
 ```
 
 This will connect to MongoDB running on `127.0.0.1:27017` (default) and export all data.
@@ -48,19 +48,19 @@ This will connect to MongoDB running on `127.0.0.1:27017` (default) and export a
 ### Specify Host and Port
 
 ```bash
-python hack.py --host localhost --port 27017
+python penetrate_into_mongodb.py --host localhost --port 27017
 ```
 
 Or use short flags:
 
 ```bash
-python hack.py -H 192.168.1.100 -p 27017
+python penetrate_into_mongodb.py -H 192.168.1.100 -p 27017
 ```
 
 ### Custom Output Folder
 
 ```bash
-python hack.py --host mongodb.example.com --port 27017 --output my_export
+python penetrate_into_mongodb.py --host mongodb.example.com --port 27017 --output my_export
 ```
 
 ### Command-Line Options
