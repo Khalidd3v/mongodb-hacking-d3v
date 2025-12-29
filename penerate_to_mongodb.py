@@ -39,8 +39,8 @@ def print_banner():
     """Print tool banner"""
     print(f"{Colors.CYAN}{Colors.BOLD}")
     print("="*70)
-    print("  MongoDB Data Export Tool")
-    print("  Read-Only Data Export to JSON Files")
+    print("  MongoDB Database Hacking Tool")
+    print("  This tool is made with ❤️ by khalidd3v")
     print("="*70)
     print(f"{Colors.RESET}\n")
 
