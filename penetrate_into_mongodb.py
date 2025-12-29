@@ -374,21 +374,38 @@ Examples:
         '''
     )
     parser.add_argument('--host', '-H', 
-                       default='127.0.0.1',
-                       help='MongoDB host address (default: 127.0.0.1)')
+                       default=None,
+                       help='MongoDB host address')
     parser.add_argument('--port', '-p', 
                        type=int,
-                       default=27017,
-                       help='MongoDB port (default: 27017)')
+                       default=None,
+                       help='MongoDB port')
     parser.add_argument('--output', '-o',
                        default='mongodb_export',
                        help='Output folder for exported JSON files (default: mongodb_export)')
     
     args = parser.parse_args()
     
-    host = args.host
-    port = args.port
+    # Prompt user for input if not provided via command-line
+    print(f"{Colors.CYAN}[*] Enter MongoDB connection details:{Colors.RESET}")
+    
+    if args.host:
+        host = args.host
+        print(f"[+] Using host from arguments: {host}")
+    else:
+        host_input = input(f"[?] MongoDB Host [{Colors.YELLOW}127.0.0.1{Colors.RESET}]: ").strip()
+        host = host_input if host_input else '127.0.0.1'
+    
+    if args.port:
+        port = args.port
+        print(f"[+] Using port from arguments: {port}")
+    else:
+        port_input = input(f"[?] MongoDB Port [{Colors.YELLOW}27017{Colors.RESET}]: ").strip()
+        port = int(port_input) if port_input else 27017
+    
     output_folder = args.output
+    
+    print()  # Empty line for spacing
     
     # Connect to MongoDB (authentication bypassed)
     client = connect_to_mongodb(host=host, port=port)
